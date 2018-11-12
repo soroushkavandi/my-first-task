@@ -1,0 +1,73 @@
+@mixin responsive {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+@mixin fix {
+  &::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@mixin make-col($cols, $gap) {
+  display: flex;
+  flex-wrap: wrap;
+  > *:nth-child(1n + 0) {
+    margin: 20px 20px 0 0;
+    width: calc(calc(100% - #{($cols - 1) * $gap}) / #{$cols});
+  }
+
+  > *:nth-child(#{$cols}n + 0) {
+    margin-right: 0;
+  }
+}
+
+@mixin make-col-old($cols: 4, $gap: 20px) {
+  @include fix;
+
+  > * {
+    display: block;
+    float: left;
+    margin-bottom: $gap;
+    margin-right: $gap;
+    min-height: 50px;
+    width: calc(calc(100% - #{($cols - 1) * $gap}) / #{$cols});
+  }
+
+  > *:nth-child(#{$cols}n + 0) {
+    margin-right: 0;
+  }
+}
+@mixin make-col3($cols, $gap) {
+  display: flex;
+  flex-wrap: wrap;
+  > *:nth-child(1n + 0) {
+    margin: 20px 20px 0 0;
+    width: calc(calc(100% - #{($cols - 1) * $gap}) / #{$cols});
+  }
+
+  > *:nth-child(#{$cols}n + 0) {
+    margin-right: 0;
+  }
+}
+@mixin make-col4($cols, $gap) {
+  display: flex;
+  flex-wrap: wrap;
+  > *:nth-child(1n + 0) {
+    margin: 20px 0 20px 0;
+    width: calc(calc(100% - #{($cols - 1) * $gap}) / #{$cols});
+  }
+
+  > *:nth-child(#{$cols}n + 0) {
+    margin-right: 0;
+  }
+  section {
+    flex-basis: 60%;
+  }
+  aside {
+    flex-basis: 40%;
+  }
+}

@@ -1,0 +1,492 @@
+@import "./base/reset";
+@import "./base/fonts";
+@import "./base/variables";
+@import "./base/mixins";
+.container {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.zone1 {
+  background-color: $grey;
+  border-bottom: 6px solid $lightgrey;
+  .container {
+    // padding: 36px 39px 35px 39px;
+    position: relative;
+    .burger {
+      width: 35px;
+      height: 5px;
+      background-color: white;
+      margin: 6px 0;
+      display: none;
+      margin-left: 50%;
+    }
+    img {
+      padding-top: 36px;
+      padding-left: 39px;
+      padding-bottom: 35px;
+    }
+    .menu {
+      right: 30px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: absolute;
+      top: 35px;
+
+      li {
+        > a :nth-child(1) {
+          margin-right: auto;
+        }
+        a {
+          color: #fff;
+          margin-left: 38px;
+          font-size: 12px;
+          &:hover {
+            color: $red;
+            transition: all 2s;
+          }
+          &.active {
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+}
+.zone2 {
+  background-color: #f06b64;
+  .container {
+    position: relative;
+    border-bottom: 6px solid $lightred;
+    .leftarrow {
+      background: url("../images/arrows.png") 0 0;
+      width: 16px;
+      height: 27px;
+      top: 50%;
+      left: 20px;
+      margin-left: -10px;
+      position: absolute;
+    }
+    img {
+      width: 100%;
+    }
+    .rightarrow {
+      background: url("../images/arrows.png") 16px 0;
+      width: 16px;
+      height: 27px;
+      top: 50%;
+      right: 20px;
+      margin-left: -10px;
+      position: absolute;
+    }
+  }
+}
+.zone3 {
+  background-color: $bgcgrey;
+  .container {
+    color: $txtgrey3;
+    h1 {
+      padding: 67px 0 33px 40px;
+    }
+    p {
+      padding-left: 42px;
+      line-height: 18px;
+    }
+
+    ::before {
+      font-family: "icons";
+      font-size: 30px;
+      border: 3px solid;
+      border-radius: 50%;
+      padding: 10px;
+    }
+    .zonecol1 {
+      h2 {
+        margin-left: 70px;
+        margin-top: -50px;
+      }
+      p {
+        margin-left: 30px;
+        margin-bottom: 20px;
+      }
+      @include make-col(3, 50px);
+      padding: 50px 20px 50px 20px;
+      article:nth-child(1):before {
+        content: "\e808";
+      }
+      article:nth-child(2):before {
+        content: "\e806";
+      }
+
+      article:nth-child(3):before {
+        content: "\e807";
+      }
+    }
+    article:nth-child(4):before {
+      content: "\e809";
+    }
+    article:nth-child(5):before {
+      content: "\e805";
+    }
+
+    article:nth-child(6):before {
+      content: "\e80a";
+    }
+  }
+  border-bottom: 6px solid white;
+}
+
+.zone4 {
+  background-color: $grey;
+  .container {
+    padding: 67px 40px 67px 40px;
+    border-bottom: 6px solid $lightgrey;
+    .active {
+      color: white;
+      border: 2px solid white;
+    }
+    .col-2 {
+      @include make-col(4, 20px);
+      a {
+        position: relative;
+        img {
+          @include responsive;
+        }
+
+        &:hover {
+          &::before,
+          &::after {
+            transform: scale(1.1);
+            transition: all 400ms;
+            opacity: 1;
+          }
+          img {
+            transform: scale(1.1);
+            transition: all 1.4s;
+          }
+        }
+        &::after {
+          z-index: 2;
+          opacity: 0;
+          content: "\e80b";
+          font-family: icons;
+          color: white;
+          position: absolute;
+          font-size: 50px;
+          top: 40%;
+          left: 40%;
+        }
+        &::before {
+          border: 3px solid white;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          opacity: 0;
+          content: "";
+          z-index: 1;
+        }
+      }
+    }
+  }
+  h3 {
+    color: $txtgrey1;
+    font-size: 30px;
+    font-family: serif;
+  }
+  p {
+    margin-top: 37px;
+    margin-bottom: 19px;
+    color: $txtgrey1;
+  }
+  a:nth-child(1) {
+    margin-left: 0;
+  }
+  article a {
+    color: $txtgrey1;
+    margin-left: 25px;
+    border: 2px solid $txtgrey1;
+    border-radius: 10px;
+    padding: 5px;
+
+    &:hover {
+      transition: 2s;
+      color: white;
+      border: 2px solid white;
+      border-radius: 10px;
+      padding: 5px;
+    }
+  }
+}
+
+.zone5 {
+  background-color: $bgcgrey;
+  color: $txtgrey1;
+  .container {
+    padding: 65px 42px 65px 40px;
+    border-bottom: 6px solid #fff;
+    h4 {
+      font-size: 30px;
+    }
+    p {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .col3 {
+      @include make-col3(3, 20px);
+      h5 {
+        font-size: 18px;
+        color: $txtgrey1;
+        margin-top: 20px;
+      }
+      p {
+        font-size: 12px;
+        color: $txtgrey1;
+      }
+      img {
+        width: 100%;
+        @include responsive;
+      }
+      a {
+        &:hover {
+          img {
+            transform: scale(1.1);
+            transition: all 800ms;
+          }
+        }
+      }
+      ::before,
+      ::after {
+        font-family: icons;
+        font-size: 40px;
+        margin-left: 10px;
+        &:hover {
+          color: red;
+        }
+      }
+
+      span a:nth-child(1) {
+        color: $txtgrey1;
+        &::before {
+          content: "\e801";
+          margin-left: 0;
+        }
+        &::after {
+          content: "\f30f";
+        }
+      }
+      span a:nth-child(2) {
+        color: $txtgrey1;
+        &::before {
+          content: "\e800";
+        }
+        &::after {
+          content: "\e802";
+        }
+      }
+    }
+  }
+}
+.zone6 {
+  background-color: $lightred;
+  .container {
+    padding: 65px 35px 65px 55px;
+    border-bottom: 6px solid $redborder;
+
+    h6 {
+      font-size: 30px;
+    }
+    h6,
+    p {
+      color: white;
+    }
+    p {
+      font-size: 18px;
+      margin-top: 35px;
+      margin-bottom: 50px;
+      line-height: 30px;
+    }
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      section {
+        width: 70%;
+        input[type="text"] {
+          font-family: monospace;
+          width: 100%;
+          height: 40px;
+          color: black;
+          background-color: $red;
+          border: 2px black;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          font-size: 15px;
+          padding-left: 20px;
+          outline: none;
+        }
+        input:nth-child(4) {
+          padding-bottom: 180px;
+          padding-top: 20px;
+        }
+      }
+      aside {
+        color: white;
+        width: 28%;
+        ul {
+          line-height: 30px;
+          ::before {
+            margin-right: 10px;
+          }
+          > :first-child::before {
+            content: "\e80c";
+            font-family: icons;
+            font-size: 15px;
+          }
+          :nth-child(2)::before {
+            content: "\e80d";
+            font-family: icons;
+            font-size: 15px;
+          }
+          :nth-child(3)::before {
+            content: "\e80e";
+            font-family: icons;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.zone7 {
+  background-color: $footerbgr;
+  .container {
+    height: 75px;
+    color: $footertxt;
+    position: relative;
+    a {
+      &:hover {
+        color: red;
+      }
+    }
+    p {
+      font-size: 15px;
+      position: absolute;
+      left: 70px;
+      top: 30px;
+    }
+    ::before,
+    ::after {
+      font-family: icons;
+      font-size: 25px;
+      position: absolute;
+      top: 30px;
+      color: $footertxt;
+    }
+
+    span a:nth-child(1) {
+      &::after {
+        content: "\e801";
+        right: 50px;
+      }
+      &::before {
+        content: "\f30f";
+        right: 80px;
+      }
+    }
+    span a:nth-child(2) {
+      &::before {
+        content: "\e800";
+        right: 110px;
+      }
+      &::after {
+        content: "\e802";
+        right: 140px;
+      }
+    }
+  }
+}
+
+// This was the default one
+// .zone4 .container .col-2 =>> more specificity
+
+// Now you use this
+// .zone4 .col-2  =>> less specific
+
+// you need
+// .zone4 .container .col-2 to overrule things above
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  //so if you use less specific you will need to use !important
+  //but you cant because its a mixin ;-)
+  // you understand?yes
+  .zone4 .container .col-2 {
+    @include make-col(3, 50px);
+  }
+}
+@media screen and (max-width: 900px) {
+  .zone3 .container .zonecol1 {
+    @include make-col(2, 50px);
+  }
+}
+@media screen and (max-width: 800px) {
+  //so if you use less specific you will need to use !important
+  //but you cant because its a mixin ;-)
+  // you understand?yes
+  .zone4 .container .col-2 {
+    @include make-col(2, 50px);
+  }
+  .zone5 .container .col3 {
+    @include make-col(2, 20px);
+  }
+  .zone6 .container div > * {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  //so if you use less specific you will need to use !important
+  //but you cant because its a mixin ;-)
+  // you understand?yes
+  .zone4 .container {
+    a {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .col-2 {
+      @include make-col(1, 20px);
+    }
+  }
+  .zone5 .container .col3 {
+    @include make-col(1, 20px);
+  }
+  .zone3 .container .zonecol1 {
+    @include make-col(1, 50px);
+  }
+}
+@media screen and (max-width: 660px) {
+  .zone1 .container {
+    a img {
+      margin-left: 30%;
+    }
+
+    .menu {
+      display: none;
+    }
+    .burger {
+      display: block;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .zone4 .container article a {
+    display: block;
+    margin-left: 0px;
+    text-align: center;
+  }
+}
